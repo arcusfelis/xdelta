@@ -4060,3 +4060,19 @@ main_help (void)
   XPR(NTR "       -cf target-x.z.tar.gz.vcdiff target-x.y\n");
   return EXIT_FAILURE;
 }
+
+
+
+#if VCDIFF_TOOLS
+#if XD3_ENCODER
+
+#include "xdelta3-state.h"
+#include "xdelta3-memory-merge.h"
+#include "xdelta3-merger.h"
+#include "xdelta3-memory-merge-internal.h"
+#include "xdelta3-merger-internal.h"
+
+#endif
+#endif
+
+
