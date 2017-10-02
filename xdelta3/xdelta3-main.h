@@ -1181,12 +1181,7 @@ main_set_secondary_flags (xd3_config *config)
     }
   if (option_secondary == NULL)
     {
-      /* Set a default secondary compressor if LZMA is built in, otherwise
-       * default to no secondary compressor. */
-      if (SECONDARY_LZMA)
-	{
-	  config->flags |= XD3_SEC_LZMA;
-	}
+        /* no default secondary compressor */
     }
   else
     {
