@@ -407,7 +407,8 @@ state_init_recode_stream (xd3_state* state)
         return ENOMEM;
     }
 
-    recode_flags = (stream_flags & XD3_SEC_TYPE);
+    recode_flags = (stream_flags & state->flags);
+//  recode_flags = (stream_flags & XD3_SEC_TYPE);
 
     recode_config.alloc = main_alloc;
     recode_config.freef = main_free1;

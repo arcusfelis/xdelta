@@ -25,6 +25,7 @@ struct _xd3_state
     usize_t     option_iopt_size;
     usize_t     option_winsize;
     usize_t     option_sprevsz;
+    int         flags;
 };
 
 struct _main_input_memory

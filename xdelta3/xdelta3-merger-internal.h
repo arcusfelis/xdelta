@@ -5,16 +5,18 @@ struct _xd3_merger
     char*   last_input_data;
     memory_merge_list merge_order;
     main_output_memory output;
+    int     flags;
 };
 
 
-xd3_merger* xd3_merger_init()
+xd3_merger* xd3_merger_init(int flags)
 {
     xd3_merger* merger = (xd3_merger*) main_malloc (sizeof (xd3_merger));
     merger->last_input_size = 0;
     merger->last_input_data = NULL;
     merger->output.size = 0;
     merger->output.data = NULL;
+    merger->flags = flags;
     memory_merge_list_init (& merger->merge_order);
     return merger;
 }
@@ -50,7 +52,9 @@ xd3_errcode xd3_merger_run(xd3_merger* merger)
     state->main_bdata = NULL;
     state->main_bsize = 0;
     state->merge_stream = NULL;
+    state->flags = 0;
     state_reset(state);
+    state->flags = merger->flags;
 
     merger->output.size = 0;
     merger->output.total_size = 1000000;
